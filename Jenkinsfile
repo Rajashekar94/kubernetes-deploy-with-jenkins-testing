@@ -1,10 +1,10 @@
 node{
 
   //Checkout Code from Git
-stage('checkout code')
-checkout scm
-  
-   stage('Build image') 
+  stage('checkout code') {
+ git 'https://github.com/Rajashekar94/kubernetes-deploy-with-jenkins-testing.git' 
+  }
+  stage('Build image') {
 
       /Create or update resources
                    sh("kubectl apply -f frontend-deployment.yml")
@@ -20,7 +20,7 @@ checkout scm
                    sh("kubectl apply -f redis-slave-svc.yml")
 
 
- 
+  }
 
 
 }
