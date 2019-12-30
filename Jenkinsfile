@@ -23,7 +23,7 @@ sh("kubectl apply -f redis-slave-svc.yml")
 
 
 
-
+ }
 }
 
 
