@@ -1,7 +1,8 @@
 node{
 
   //Checkout Code from Git
-  checkout scm
+stage('checkout code')  
+checkout scm
 
  stage('Deploy application'){
 
