@@ -6,7 +6,7 @@ node{
   }
   stage('Build image') {
 
-      /Create or update resources
+      //Create or update resources
                    sh("kubectl apply -f frontend-deployment.yml")
                                                   
                    sh("kubectl apply -f frontend-svc.yml")
