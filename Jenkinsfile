@@ -7,9 +7,9 @@ node{
   
   
 stage('Build image') {
-  withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'password', usernameVariable: 'username')]) {
+  //withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'password', usernameVariable: 'username')]) {
     // some block
-
+  withCredentials([file(credentialsId: 'kubernetesconfig-', variable: 'configfile')]) {
 
       //Create or update resources
       sh("kubectl apply -f frontend-deployment.yml")
