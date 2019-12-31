@@ -6,8 +6,8 @@ node{
   }
   
   
-  stage('Build image') {
-    withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'user_passwd', usernameVariable: 'user_name')]) {
+stage('Build image') {
+  withCredentials([usernamePassword(credentialsId: 'kube-cred', passwordVariable: 'user_passwd', usernameVariable: 'user_name')]) {
     // some block
 
 
@@ -26,6 +26,6 @@ node{
 
 }
   }
-
 }
+
 
