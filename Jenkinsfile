@@ -9,7 +9,8 @@ node{
 stage('Build image') {
   //withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'password', usernameVariable: 'username')]) {
     // some block
-  withCredentials([file(credentialsId: 'kubernetesconfig-', variable: 'configfile')]) {
+  //withCredentials([file(credentialsId: 'kubernetesconfig-', variable: 'configfile')]) {
+  withCredentials([sshUserPrivateKey(credentialsId: 'kubernetesconfi', keyFileVariable: 'ssh_privatekey', passphraseVariable: 'ssh_password', usernameVariable: 'private_key')]) {
 
       //Create or update resources
       sh("kubectl apply -f frontend-deployment.yml")
