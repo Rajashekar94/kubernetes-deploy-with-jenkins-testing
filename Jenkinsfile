@@ -12,7 +12,7 @@ stage('Build image') {
 
 
       //Create or update resources
-      sh('kubectl apply -f frontend-deployment.yml --user_name="${user_name}" --user_passwd="${user_passwd}"')
+      sh("kubectl apply -f frontend-deployment.yml")
                                                   
                    sh("kubectl apply -f frontend-svc.yml")
 
