@@ -7,7 +7,7 @@ node{
   
   
   stage('Build image') {
-    withCredentials([usernamePassword(credentialsId: 'jenkins_master', passwordVariable: 'user_name', usernameVariable: 'passwd')]) 
+    //withCredentials([usernamePassword(credentialsId: 'jenkins_master', passwordVariable: 'user_name', usernameVariable: 'passwd')]) 
     // some block
 
 
