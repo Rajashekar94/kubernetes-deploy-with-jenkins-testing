@@ -7,7 +7,7 @@ node{
   
   
 stage('Build image') {
-  withCredentials([usernamePassword(credentialsId: 'kube-cred', passwordVariable: 'user_passwd', usernameVariable: 'user_name')]) {
+  withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'password', usernameVariable: 'username')]) {
     // some block
 
 
