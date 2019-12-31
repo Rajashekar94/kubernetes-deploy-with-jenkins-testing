@@ -7,12 +7,12 @@ node{
   
   
   stage('Build image') {
-    //withCredentials([usernamePassword(credentialsId: 'jenkins_master', passwordVariable: 'user_name', usernameVariable: 'passwd')]) 
+    withCredentials([usernamePassword(credentialsId: 'connect', passwordVariable: 'user_passwd', usernameVariable: 'user_name')]) {
     // some block
 
 
       //Create or update resources
-                   sh("kubectl apply -f frontend-deployment.yml")
+      sh('kubectl apply -f frontend-deployment.yml --user_name="${user_name}" --user_passwd="${user_passwd}"')
                                                   
                    sh("kubectl apply -f frontend-svc.yml")
 
@@ -27,5 +27,5 @@ node{
 }
   }
 
-
+}
 
