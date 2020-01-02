@@ -8,7 +8,7 @@ node{
   
 stage('Build image') {
    sshagent(['kubernetes-cluster']) {
-    sh "scp -o StrictHostKeyChecking=no ubuntu@34.68.5.242:/home/ubuntu/guestbook"
+    sh "StrictHostKeyChecking=no ubuntu@34.68.5.242:/home/ubuntu/guestbook"
         script{
 	      try {
 		   sh "ssh  ubuntu@34.68.5.242 kubectl apply -f ."
