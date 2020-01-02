@@ -7,21 +7,16 @@ node{
   
   
 stage('Build image') {
-  
-      sh("kubectl apply -f frontend-deployment.yml")
-                                                  
-                   sh("kubectl apply -f frontend-svc.yml")
-
-                   sh("kubectl apply -f redis-master-deployment.yml")
-
-                   sh("kubectl apply -f redis-master-svc.yml")
-
-                   sh("kubectl apply -f redis-slave-deployment.yml")
-
-                   sh("kubectl apply -f redis-slave-svc.yml")
-
-}
+   sshagent(['kubernetes-cluster']) {
+    sh "scp -o StrictHostKeyChecking=no frontend-deployment.yml frontend-svc.yml ubuntu@34.68.5.242:/home/ubuntu/guestbook"
+        script{
+	      try {
+		   sh "ssh  ubuntu@34.68.5.242 kubectl apply -f ."
+		   }
+           sh "ssh  ubuntu@34.68.5.242 kubectl create -f ."  
+	       }
   }
+}
 }
 
 
