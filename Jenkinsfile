@@ -8,6 +8,9 @@ node{
   
 stage('Build image') {
    sshagent(['kubernetes-cluster']) {
+	   
+	   // here we need to change ip of instance if server restarts,because it is not a static ip
+	   
     sh "scp -o StrictHostKeyChecking=no frontend-deployment.yml frontend-svc.yml ubuntu@35.238.55.137:/home/ubuntu/guestbook"
         script{
 	      try {
