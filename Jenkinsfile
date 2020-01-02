@@ -12,11 +12,11 @@ stage('Build image') {
         script{
 	      try {
 		   sh "ssh  ubuntu@34.68.5.242 kubectl apply -f ."
-		   }
+		   } catch(error){
            sh "ssh  ubuntu@34.68.5.242 kubectl create -f ."  
 	       }
-  }
+		   }
 }
 }
-
+}
 
