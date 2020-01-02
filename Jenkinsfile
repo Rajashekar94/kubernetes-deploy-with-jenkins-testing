@@ -11,9 +11,9 @@ stage('Build image') {
     sh "scp -o StrictHostKeyChecking=no frontend-deployment.yml frontend-svc.yml ubuntu@34.68.5.242:/home/ubuntu/guestbook"
         script{
 	      try {
-		   sh "ssh  ubuntu@34.68.5.242 kubectl apply -f *.yml"
+		   sh "ssh  ubuntu@34.68.5.242 kubectl apply -f *.yaml"
 		   } catch(error){
-           sh "ssh  ubuntu@34.68.5.242 kubectl create -f *.yml"  
+           sh "ssh  ubuntu@34.68.5.242 kubectl create -f *.yaml"  
 	       }
 		   }
 }
